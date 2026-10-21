@@ -176,7 +176,7 @@
 
         <div style="padding:28px; background:var(--bg-soft); border:1px solid var(--line); border-radius:var(--radius-sm);">
           <strong style="display:block; font-size:14px; color:var(--dark); margin-bottom:6px;">⭐ Verified Customer Satisfaction</strong>
-          <p style="margin:0; font-size:13px; color:var(--muted); line-height:1.6;">Imperial Real Estate Construction maintains a 5.0 out of 5.0 rating on MyBuilder across 54 completed and verified client reviews. <a href="https://www.mybuilder.com/profile/imperial-real-estate-holdings-ltd" target="_blank" rel="noopener" style="color:var(--gold-dark); font-weight:500;">View profile ↗</a></p>
+          <p style="margin:0; font-size:13px; color:var(--muted); line-height:1.6;">54 verified 5-star reviews from independent clients — see our MyBuilder profile for details.</p>
         </div>
       </div>
 
@@ -287,6 +287,105 @@
     </div>
   </section>
 
+  <!-- Step-by-Step Interactive Feasibility Planner -->
+  <section class="section section-soft" style="padding-top:40px; padding-bottom:90px;">
+    <div class="container container-narrow">
+      <div class="quiz-card" id="projectQuiz">
+        <div class="quiz-header">
+          <span class="eyebrow">3-Minute Project Planner</span>
+          <h2>Plan your build step-by-step.</h2>
+          <p style="color:var(--muted); font-size:15px; margin:0;">Answer 3 quick questions to help founder Musa Abdul prepare your tailored feasibility assessment.</p>
+        </div>
+
+        <div class="quiz-steps-indicator">
+          <div class="quiz-indicator-dot active" data-step="1">1</div>
+          <div style="width:40px; height:2px; background:var(--line);"></div>
+          <div class="quiz-indicator-dot" data-step="2">2</div>
+          <div style="width:40px; height:2px; background:var(--line);"></div>
+          <div class="quiz-indicator-dot" data-step="3">3</div>
+        </div>
+
+        <!-- Step 1: Project Scope -->
+        <div class="quiz-step-pane active" id="quizStep1">
+          <h4 style="text-align:center; font-size:18px; margin-bottom:24px; color:var(--dark);">What type of property project are you planning?</h4>
+          <div class="quiz-options-grid">
+            <div class="quiz-choice-card" data-quiz-choice="project" data-val="Loft Conversion">
+              <span class="quiz-choice-icon">🏗️</span>
+              <strong class="quiz-choice-title">Loft Conversion</strong>
+              <span class="quiz-choice-sub">Dormer, hip-to-gable or mansard</span>
+            </div>
+            <div class="quiz-choice-card" data-quiz-choice="project" data-val="Home Extension">
+              <span class="quiz-choice-icon">🏡</span>
+              <strong class="quiz-choice-title">Home Extension</strong>
+              <span class="quiz-choice-sub">Rear, side-return or wraparound</span>
+            </div>
+            <div class="quiz-choice-card" data-quiz-choice="project" data-val="Full Renovation">
+              <span class="quiz-choice-icon">✨</span>
+              <strong class="quiz-choice-title">Full Renovation</strong>
+              <span class="quiz-choice-sub">Whole-home structural modernization</span>
+            </div>
+          </div>
+          <div class="quiz-footer-actions" style="justify-content:flex-end;">
+            <button type="button" class="btn btn-sm" id="quizNext1">Continue to Planning Status →</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Planning & Drawings Status -->
+        <div class="quiz-step-pane" id="quizStep2">
+          <h4 style="text-align:center; font-size:18px; margin-bottom:24px; color:var(--dark);">Do you have architectural drawings or planning permission?</h4>
+          <div class="quiz-options-grid">
+            <div class="quiz-choice-card" data-quiz-choice="planning" data-val="Full Drawings & Approved Planning">
+              <span class="quiz-choice-icon">📐</span>
+              <strong class="quiz-choice-title">Approved Planning</strong>
+              <span class="quiz-choice-sub">Drawings ready to price immediately</span>
+            </div>
+            <div class="quiz-choice-card" data-quiz-choice="planning" data-val="Drawings In Progress">
+              <span class="quiz-choice-icon">✏️</span>
+              <strong class="quiz-choice-title">Working With Architect</strong>
+              <span class="quiz-choice-sub">Drawings currently being drafted</span>
+            </div>
+            <div class="quiz-choice-card" data-quiz-choice="planning" data-val="Just Getting Started / Permitted Dev">
+              <span class="quiz-choice-icon">💡</span>
+              <strong class="quiz-choice-title">Early Feasibility</strong>
+              <span class="quiz-choice-sub">Need architectural & planning guidance</span>
+            </div>
+          </div>
+          <div class="quiz-footer-actions">
+            <button type="button" class="btn outline btn-sm" id="quizBack2">← Back</button>
+            <button type="button" class="btn btn-sm" id="quizNext2">Continue to Target Timeline →</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Start Timeline -->
+        <div class="quiz-step-pane" id="quizStep3">
+          <h4 style="text-align:center; font-size:18px; margin-bottom:24px; color:var(--dark);">When are you aiming to begin construction?</h4>
+          <div class="quiz-options-grid">
+            <div class="quiz-choice-card" data-quiz-choice="timeline" data-val="Immediately (1-2 Months)">
+              <span class="quiz-choice-icon">⚡</span>
+              <strong class="quiz-choice-title">Ready Now</strong>
+              <span class="quiz-choice-sub">Starting in next 1–2 months</span>
+            </div>
+            <div class="quiz-choice-card" data-quiz-choice="timeline" data-val="3-6 Months">
+              <span class="quiz-choice-icon">📅</span>
+              <strong class="quiz-choice-title">3 to 6 Months</strong>
+              <span class="quiz-choice-sub">Aligning plans, tenders & schedules</span>
+            </div>
+            <div class="quiz-choice-card" data-quiz-choice="timeline" data-val="Future Project (6+ Months)">
+              <span class="quiz-choice-icon">🔭</span>
+              <strong class="quiz-choice-title">Future Project</strong>
+              <span class="quiz-choice-sub">Early budgeting & research phase</span>
+            </div>
+          </div>
+          <div class="quiz-footer-actions">
+            <button type="button" class="btn outline btn-sm" id="quizBack3">← Back</button>
+            <button type="button" class="btn btn-sm" id="quizComplete">Fill In My Details Above ↑</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Frequently Asked Questions -->
   <section class="section section-soft">
     <div class="container container-narrow">
@@ -359,8 +458,7 @@
 
         <div>
           <h4>Verified Proof</h4>
-          <p style="font-size:13px; color:rgba(255,255,255,0.6); margin-bottom:14px;">54 Verified Reviews on MyBuilder with 100% positive feedback score.</p>
-          <a href="https://www.mybuilder.com/profile/imperial-real-estate-holdings-ltd" target="_blank" rel="noopener">MyBuilder Profile ↗</a>
+          <p style="font-size:13px; color:rgba(255,255,255,0.6); margin-bottom:14px;">54 Verified Reviews with 100% positive feedback score.</p>
           <a href="https://www.instagram.com/imperialrecofficial/" target="_blank" rel="noopener">Instagram @imperialrecofficial ↗</a>
           <a href="https://www.imperialrec.com/home" target="_blank" rel="noopener">Original Website ↗</a>
         </div>
@@ -374,5 +472,15 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <!-- Floating Quick Consultation Contact Pill -->
+  <a href="tel:02081531850" class="floating-contact-pill" aria-label="Direct Phone Line to Musa Abdul: 0208 153 1850">
+    <div class="floating-pill-dot"></div>
+    <div class="floating-pill-text">
+      <span>Speaking with Musa</span>
+      0208 153 1850
+    </div>
+    <div class="floating-pill-call">📞</div>
+  </a>
+
 </body>
 </html>
