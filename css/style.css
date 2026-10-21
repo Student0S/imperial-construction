@@ -1360,3 +1360,197 @@ textarea.form-control {
   background: var(--gold);
   color: var(--dark);
 }
+
+/* ==========================================================================
+   4-Step Process Page & Cards Styles
+   ========================================================================== */
+.process-flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+.process-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 36px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.process-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(197, 160, 89, 0.4);
+}
+.process-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.process-step-num {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--gold-dark);
+  line-height: 1;
+}
+.process-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+.process-stage-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 8px;
+}
+.process-card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: var(--dark);
+}
+.process-card-lead {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.process-card-list {
+  list-style: none;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+.process-card-list li {
+  font-size: 13px;
+  color: var(--ink-light);
+  line-height: 1.6;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 18px;
+}
+.process-card-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: bold;
+}
+.process-card-action {
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+.process-card-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  background: var(--bg-soft);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+}
+.process-micro-link {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+.process-micro-link:hover {
+  color: var(--dark);
+}
+
+/* Comparison Table */
+.comparison-table-wrap {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.process-compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.process-compare-table th {
+  padding: 20px 28px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--line);
+}
+.process-compare-table td {
+  padding: 22px 28px;
+  font-size: 14px;
+  line-height: 1.6;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.process-compare-table tr:last-child td {
+  border-bottom: none;
+}
+.table-col-trad {
+  color: var(--muted);
+  background: rgba(0, 0, 0, 0.015);
+}
+.table-col-imp {
+  color: var(--dark);
+  background: rgba(197, 160, 89, 0.06);
+}
+
+/* Process FAQ */
+.process-faq-item {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 24px 28px;
+  box-shadow: var(--shadow-sm);
+}
+.process-faq-item h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: var(--dark);
+}
+.process-faq-item p {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 1024px) {
+  .process-flow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .process-flow {
+    grid-template-columns: 1fr;
+  }
+  .process-compare-table th,
+  .process-compare-table td {
+    padding: 16px;
+    font-size: 13px;
+  }
+}
