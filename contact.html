@@ -93,8 +93,6 @@
 </head>
 <body>
 
-  
-
   <!-- Header -->
   <header class="header-wrap">
     <div class="container nav">
@@ -188,11 +186,11 @@
 
         <!-- Booking option -->
         <div style="display:flex; gap:12px; margin-bottom:28px; flex-wrap:wrap;">
-          <a href="#" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; border:1px solid var(--line); border-radius:var(--radius-sm); font-size:14px; font-weight:500; color:var(--dark); text-decoration:none; transition:all 0.2s;">
+          <a href="tel:02081531850" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; border:1px solid var(--line); border-radius:var(--radius-sm); font-size:14px; font-weight:500; color:var(--dark); text-decoration:none; transition:all 0.2s;">
             📅 Book a 10-minute call
           </a>
-          <a href="#" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; border:1px solid var(--line); border-radius:var(--radius-sm); font-size:14px; font-weight:500; color:var(--dark); text-decoration:none; transition:all 0.2s;">
-            🏗️ Book a site survey
+          <a href="#projectQuiz" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; border:1px solid var(--line); border-radius:var(--radius-sm); font-size:14px; font-weight:500; color:var(--dark); text-decoration:none; transition:all 0.2s;">
+            🏗️ Configure virtual estimate
           </a>
         </div>
 
@@ -287,29 +285,31 @@
     </div>
   </section>
 
-  <!-- Step-by-Step Interactive Feasibility Planner -->
+  <!-- Step-by-Step Interactive Feasibility Planner & Material Moodboard -->
   <section class="section section-soft" style="padding-top:40px; padding-bottom:90px;">
     <div class="container container-narrow">
       <div class="quiz-card" id="projectQuiz">
         <div class="quiz-header">
-          <span class="eyebrow">3-Minute Project Planner</span>
-          <h2>Plan your build step-by-step.</h2>
-          <p style="color:var(--muted); font-size:15px; margin:0;">Answer 3 quick questions to help founder Musa Abdul prepare your tailored feasibility assessment.</p>
+          <span class="eyebrow">Interactive Feasibility & Spec Generator</span>
+          <h2>Virtual Estimate & Material Moodboard</h2>
+          <p style="color:var(--muted); font-size:15px; margin:0;">Configure your project scope, select architectural materials, and generate a printable PDF-ready project specification sheet.</p>
         </div>
 
         <div class="quiz-steps-indicator">
           <div class="quiz-indicator-dot active" data-step="1">1</div>
-          <div style="width:40px; height:2px; background:var(--line);"></div>
+          <div style="width:30px; height:2px; background:var(--line);"></div>
           <div class="quiz-indicator-dot" data-step="2">2</div>
-          <div style="width:40px; height:2px; background:var(--line);"></div>
+          <div style="width:30px; height:2px; background:var(--line);"></div>
           <div class="quiz-indicator-dot" data-step="3">3</div>
+          <div style="width:30px; height:2px; background:var(--line);"></div>
+          <div class="quiz-indicator-dot" data-step="4">4</div>
         </div>
 
         <!-- Step 1: Project Scope -->
         <div class="quiz-step-pane active" id="quizStep1">
           <h4 style="text-align:center; font-size:18px; margin-bottom:24px; color:var(--dark);">What type of property project are you planning?</h4>
           <div class="quiz-options-grid">
-            <div class="quiz-choice-card" data-quiz-choice="project" data-val="Loft Conversion">
+            <div class="quiz-choice-card selected" data-quiz-choice="project" data-val="Loft Conversion">
               <span class="quiz-choice-icon">🏗️</span>
               <strong class="quiz-choice-title">Loft Conversion</strong>
               <span class="quiz-choice-sub">Dormer, hip-to-gable or mansard</span>
@@ -334,7 +334,7 @@
         <div class="quiz-step-pane" id="quizStep2">
           <h4 style="text-align:center; font-size:18px; margin-bottom:24px; color:var(--dark);">Do you have architectural drawings or planning permission?</h4>
           <div class="quiz-options-grid">
-            <div class="quiz-choice-card" data-quiz-choice="planning" data-val="Full Drawings & Approved Planning">
+            <div class="quiz-choice-card selected" data-quiz-choice="planning" data-val="Full Drawings & Approved Planning">
               <span class="quiz-choice-icon">📐</span>
               <strong class="quiz-choice-title">Approved Planning</strong>
               <span class="quiz-choice-sub">Drawings ready to price immediately</span>
@@ -352,15 +352,100 @@
           </div>
           <div class="quiz-footer-actions">
             <button type="button" class="btn outline btn-sm" id="quizBack2">← Back</button>
-            <button type="button" class="btn btn-sm" id="quizNext2">Continue to Target Timeline →</button>
+            <button type="button" class="btn btn-sm" id="quizNext2">Continue to Material Swatches →</button>
           </div>
         </div>
 
-        <!-- Step 3: Start Timeline -->
+        <!-- Step 3: Architectural Material Swatches & Moodboard -->
         <div class="quiz-step-pane" id="quizStep3">
+          <h4 style="text-align:center; font-size:18px; margin-bottom:8px; color:var(--dark);">Curate Your Architectural Materials Moodboard</h4>
+          <p style="text-align:center; color:var(--muted); font-size:13.5px; margin-bottom:24px;">Select the premium finishes and glazing elements you would like included in your specification:</p>
+          
+          <div class="swatches-grid">
+            <!-- Swatch 1 -->
+            <div class="swatch-card selected" data-swatch="Crittall-Style Slimline Glazing">
+              <div class="swatch-thumb">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80" alt="Crittall Glazing">
+                <div class="swatch-check">✓</div>
+              </div>
+              <div class="swatch-info">
+                <strong>Crittall-Style Glazing</strong>
+                <span>Acoustic thermal slimline steel look</span>
+              </div>
+            </div>
+
+            <!-- Swatch 2 -->
+            <div class="swatch-card selected" data-swatch="Prime European Herringbone Oak">
+              <div class="swatch-thumb">
+                <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=400&q=80" alt="Herringbone Oak">
+                <div class="swatch-check">✓</div>
+              </div>
+              <div class="swatch-info">
+                <strong>Herringbone Oak</strong>
+                <span>Engineered hardwood for underfloor heat</span>
+              </div>
+            </div>
+
+            <!-- Swatch 3 -->
+            <div class="swatch-card selected" data-swatch="Calacatta Quartz Waterfall Island">
+              <div class="swatch-thumb">
+                <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=400&q=80" alt="Calacatta Quartz">
+                <div class="swatch-check">✓</div>
+              </div>
+              <div class="swatch-info">
+                <strong>Calacatta Gold Quartz</strong>
+                <span>Seamless waterfall edge & slab splashback</span>
+              </div>
+            </div>
+
+            <!-- Swatch 4 -->
+            <div class="swatch-card selected" data-swatch="Seamless Micro-Cement & Bronze Brassware">
+              <div class="swatch-thumb">
+                <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=400&q=80" alt="Micro-cement wetroom">
+                <div class="swatch-check">✓</div>
+              </div>
+              <div class="swatch-info">
+                <strong>Micro-Cement & Bronze</strong>
+                <span>Groutless waterproof wetroom finish</span>
+              </div>
+            </div>
+
+            <!-- Swatch 5 -->
+            <div class="swatch-card" data-swatch="Structural Frameless Roof Lanterns">
+              <div class="swatch-thumb">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=400&q=80" alt="Rooflight">
+                <div class="swatch-check">✓</div>
+              </div>
+              <div class="swatch-info">
+                <strong>Structural Skylights</strong>
+                <span>Solar-control flush walk-on glass</span>
+              </div>
+            </div>
+
+            <!-- Swatch 6 -->
+            <div class="swatch-card" data-swatch="Bespoke Shaker Joinery & Hidden Pantries">
+              <div class="swatch-thumb">
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=400&q=80" alt="Bespoke cabinetry">
+                <div class="swatch-check">✓</div>
+              </div>
+              <div class="swatch-info">
+                <strong>Bespoke Built-In Joinery</strong>
+                <span>Handmade floor-to-ceiling wardrobes & pantries</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-footer-actions">
+            <button type="button" class="btn outline btn-sm" id="quizBack3">← Back</button>
+            <button type="button" class="btn btn-sm" id="quizNext3">Continue to Target Timeline →</button>
+          </div>
+        </div>
+
+        <!-- Step 4: Timeline & Virtual Estimate Generator -->
+        <div class="quiz-step-pane" id="quizStep4">
           <h4 style="text-align:center; font-size:18px; margin-bottom:24px; color:var(--dark);">When are you aiming to begin construction?</h4>
           <div class="quiz-options-grid">
-            <div class="quiz-choice-card" data-quiz-choice="timeline" data-val="Immediately (1-2 Months)">
+            <div class="quiz-choice-card selected" data-quiz-choice="timeline" data-val="Immediately (1-2 Months)">
               <span class="quiz-choice-icon">⚡</span>
               <strong class="quiz-choice-title">Ready Now</strong>
               <span class="quiz-choice-sub">Starting in next 1–2 months</span>
@@ -376,15 +461,102 @@
               <span class="quiz-choice-sub">Early budgeting & research phase</span>
             </div>
           </div>
+
+          <div style="background:var(--bg-soft); border:1px solid var(--line); border-radius:var(--radius-sm); padding:20px 24px; margin-bottom:28px; text-align:center;">
+            <p style="font-size:14px; color:var(--ink-light); margin-bottom:6px;">
+              Ready to generate your interactive virtual estimate breakdown and downloadable PDF spec sheet?
+            </p>
+            <span style="font-size:12px; color:var(--muted);">Includes indicative cost range, timeline benchmarks, milestone payment schedule & chosen material palette.</span>
+          </div>
+
           <div class="quiz-footer-actions">
-            <button type="button" class="btn outline btn-sm" id="quizBack3">← Back</button>
-            <button type="button" class="btn btn-sm" id="quizComplete">Fill In My Details Above ↑</button>
+            <button type="button" class="btn outline btn-sm" id="quizBack4">← Back</button>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <button type="button" class="btn btn-sm outline" id="quizPopulateForm">Fill Details in Form ↑</button>
+              <button type="button" class="btn btn-sm" id="quizGenerateSpec">📄 Generate PDF Spec Sheet</button>
+            </div>
           </div>
         </div>
 
       </div>
     </div>
   </section>
+
+  <!-- Interactive Virtual Estimate / Printable Spec Sheet Modal -->
+  <div class="spec-modal-backdrop" id="specModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="specTitle">
+    <div class="spec-modal-dialog">
+      <button class="project-modal-close spec-modal-close" id="closeSpecModal" aria-label="Close specification sheet">✕</button>
+      
+      <div class="spec-sheet-header">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;">
+          <div>
+            <div class="logo" style="color:#ffffff; margin-bottom:6px; font-size:22px;">
+              IMPERIAL
+              <span style="color:var(--gold);">REAL ESTATE CONSTRUCTION</span>
+            </div>
+            <span style="font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-light);">Architectural Specification & Feasibility Breakdown</span>
+          </div>
+          <div style="text-align:right; font-size:12px; color:rgba(255,255,255,0.7);">
+            <strong>Reference:</strong> <span id="specRef">IMP-2026-SPEC</span><br>
+            <strong>Date:</strong> <span id="specDate">October 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec-sheet-body">
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:20px; flex-wrap:wrap; gap:12px;">
+          <div>
+            <span class="eyebrow" style="margin-bottom:6px;">Client Specification</span>
+            <h3 id="specTitle" style="font-size:24px; color:var(--dark); margin:0;">Project Feasibility & Scope Plan</h3>
+          </div>
+          <div class="spec-modal-actions" style="display:flex; gap:12px;">
+            <button type="button" class="btn btn-sm" onclick="window.print()">🖨️ Print / Save PDF</button>
+          </div>
+        </div>
+
+        <div class="spec-meta-grid">
+          <div class="spec-meta-item">
+            <span id="specMetaProjectLabel">Discipline</span>
+            <strong id="specMetaProject">Loft Conversion</strong>
+          </div>
+          <div class="spec-meta-item">
+            <span>Planning Status</span>
+            <strong id="specMetaPlanning">Approved Planning</strong>
+          </div>
+          <div class="spec-meta-item">
+            <span>Target Start</span>
+            <strong id="specMetaTimeline">1–2 Months</strong>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1.2fr 1fr; gap:28px; margin-bottom:28px;">
+          <div style="background:var(--bg-soft); border:1px solid var(--line); border-radius:var(--radius-sm); padding:20px;">
+            <strong style="display:block; font-size:12px; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold-dark); margin-bottom:10px;">Selected Architectural Material Palette</strong>
+            <ul id="specMaterialsList" style="list-style:none; padding:0; margin:0; display:grid; gap:8px; font-size:13.5px; color:var(--ink-light);">
+              <!-- Rendered via JS -->
+            </ul>
+          </div>
+
+          <div style="background:var(--dark-surface); color:#ffffff; border-radius:var(--radius-sm); padding:20px; display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <span style="font-size:11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--gold); display:block; margin-bottom:4px;">Indicative Investment Benchmark</span>
+              <div id="specCostRange" style="font-family:var(--font-serif); font-size:26px; color:#ffffff; font-weight:600; margin-bottom:6px;">£55,000 – £75,000</div>
+              <div id="specDuration" style="font-size:12px; color:var(--gold-light); margin-bottom:12px;">Estimated Build: 8 – 10 Weeks</div>
+              <p style="font-size:12px; color:rgba(255,255,255,0.7); line-height:1.5; margin:0;">Includes Building Control compliance, structural engineering calculations, NICEIC electrical certs, and 12–24m defect warranty.</p>
+            </div>
+            <div style="font-size:11px; color:var(--gold); margin-top:12px; border-top:1px solid rgba(255,255,255,0.1); padding-top:8px;">
+              ✓ £10M Public Liability · Milestone Invoicing
+            </div>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid var(--line); padding-top:20px; font-size:12.5px; color:var(--muted); line-height:1.6;">
+          <p style="margin-bottom:8px;"><strong>Imperial Milestone Guarantee:</strong> We operate a 4-stage transparent payment plan linked directly to site inspection sign-offs. No advance deposits are required before materials or plant arrive on site.</p>
+          <p style="margin:0;">To finalise this specification with Director Musa Abdul, telephone <strong>0208 153 1850</strong> or email your drawings to <strong>info@imperialrec.com</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Frequently Asked Questions -->
   <section class="section section-soft">
