@@ -37,6 +37,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://student0s.github.io/imperial-construction/case-study-bickley.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://student0s.github.io/imperial-construction/case-study-orpington.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://student0s.github.io/imperial-construction/areas-covered.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://student0s.github.io/imperial-construction/reviews.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://student0s.github.io/imperial-construction/faq.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://student0s.github.io/imperial-construction/services.html</loc>
     <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
