@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://student0s.github.io/imperial-construction/sitemap.xml
