@@ -145,7 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1000);
     });
   }
-});
 
   // Project Feasibility & Cost Calculator
   const calcContainer = document.querySelector('.calc-container');
@@ -289,48 +288,70 @@ document.addEventListener('DOMContentLoaded', () => {
 
     projectCardsForModal.forEach(card => {
       const link = card.querySelector('.project-link');
-      if (link) {
+      if (link && !card.querySelector('a.btn-sm')) { // only attach if modal link clicked
         link.addEventListener('click', (e) => {
           e.preventDefault();
-
-          const title = card.querySelector('h3') ? card.querySelector('h3').textContent : '';
-          const location = card.querySelector('.project-location') ? card.querySelector('.project-location').textContent : '';
-          const img = card.querySelector('.project-media img') ? card.querySelector('.project-media img').src : '';
-          
-          const specItems = card.querySelectorAll('.project-specs .spec-item strong');
-          const metric1 = specItems[0] ? specItems[0].textContent : 'Flexible';
-          const metric2 = specItems[1] ? specItems[1].textContent : 'Custom';
-          const metric3 = specItems[2] ? specItems[2].textContent : 'Permitted Dev';
-
-          const narrativePhases = card.querySelectorAll('.project-narrative .narrative-phase p');
-          const challenge = narrativePhases[0] ? narrativePhases[0].textContent : card.querySelector('.project-info p') ? card.querySelector('.project-info p').textContent : '';
-          const solution = narrativePhases[1] ? narrativePhases[1].textContent : 'Full architectural specification and engineered structural layout.';
-          const result = narrativePhases[2] ? narrativePhases[2].textContent : 'Delivered on time, on budget with complete Building Control sign-off.';
-
-          // Populate modal
-          modalBackdrop.querySelector('h3').textContent = title;
-          modalBackdrop.querySelector('.project-modal-location').textContent = location;
-          modalBackdrop.querySelector('.project-modal-media img').src = img;
-          modalBackdrop.querySelector('.metric-1').textContent = metric1;
-          modalBackdrop.querySelector('.metric-2').textContent = metric2;
-          modalBackdrop.querySelector('.metric-3').textContent = metric3;
-          modalBackdrop.querySelector('.modal-challenge').textContent = challenge;
-          modalBackdrop.querySelector('.modal-solution').textContent = solution;
-          modalBackdrop.querySelector('.modal-result').textContent = result;
-
-          modalBackdrop.classList.add('active');
+          openModalWithCard(card);
         });
       }
     });
+
+    document.querySelectorAll('.project-footer .project-link').forEach(link => {
+      if (link.textContent.includes('Quick View')) {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const card = link.closest('.project-card');
+          if (card) openModalWithCard(card);
+        });
+      }
+    });
+
+    function openModalWithCard(card) {
+      const modalBackdrop = document.querySelector('.project-modal-backdrop');
+      if (!modalBackdrop) return;
+
+      const title = card.querySelector('h3') ? card.querySelector('h3').textContent : '';
+      const location = card.querySelector('.project-location') ? card.querySelector('.project-location').textContent : '';
+      const img = card.querySelector('.project-media img') ? card.querySelector('.project-media img').src : '';
+      
+      const specItems = card.querySelectorAll('.project-specs .spec-item strong');
+      const metric1 = specItems[0] ? specItems[0].textContent : 'Flexible';
+      const metric2 = specItems[1] ? specItems[1].textContent : 'Custom';
+      const metric3 = specItems[2] ? specItems[2].textContent : 'Permitted Dev';
+
+      const narrativePhases = card.querySelectorAll('.project-narrative .narrative-phase p');
+      const challenge = narrativePhases[0] ? narrativePhases[0].textContent : card.querySelector('.project-info p') ? card.querySelector('.project-info p').textContent : '';
+      const solution = narrativePhases[1] ? narrativePhases[1].textContent : 'Full architectural specification and engineered structural layout.';
+      const result = narrativePhases[2] ? narrativePhases[2].textContent : 'Delivered on time, on budget with complete Building Control sign-off.';
+
+      // Populate modal
+      modalBackdrop.querySelector('h3').textContent = title;
+      modalBackdrop.querySelector('.project-modal-location').textContent = location;
+      modalBackdrop.querySelector('.project-modal-media img').src = img;
+      modalBackdrop.querySelector('.metric-1').textContent = metric1;
+      modalBackdrop.querySelector('.metric-2').textContent = metric2;
+      modalBackdrop.querySelector('.metric-3').textContent = metric3;
+      modalBackdrop.querySelector('.modal-challenge').textContent = challenge;
+      modalBackdrop.querySelector('.modal-solution').textContent = solution;
+      modalBackdrop.querySelector('.modal-result').textContent = result;
+
+      modalBackdrop.classList.add('active');
+    }
   }
 
-  // Interactive Project Planner Quiz Logic
+  // Interactive Project Planner & Virtual Estimate Generator Logic
   const quiz = document.getElementById('projectQuiz');
   if (quiz) {
     let currentStep = 1;
     let quizData = {
       project: 'Loft Conversion',
       planning: 'Full Drawings & Approved Planning',
+      materials: [
+        'Crittall-Style Slimline Glazing',
+        'Prime European Herringbone Oak',
+        'Calacatta Quartz Waterfall Island',
+        'Seamless Micro-Cement & Bronze Brassware'
+      ],
       timeline: 'Immediately (1-2 Months)'
     };
 
@@ -350,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Choice card selections
+    // Choice card selections (Single select per step)
     quiz.querySelectorAll('.quiz-choice-card').forEach(card => {
       card.addEventListener('click', () => {
         const category = card.getAttribute('data-quiz-choice');
@@ -361,39 +382,133 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    // Multi-select Material Swatches
+    const swatchCards = quiz.querySelectorAll('.swatch-card');
+    swatchCards.forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('selected');
+        const selectedSwatches = [];
+        quiz.querySelectorAll('.swatch-card.selected').forEach(sc => {
+          selectedSwatches.push(sc.getAttribute('data-swatch'));
+        });
+        quizData.materials = selectedSwatches;
+      });
+    });
+
+    // Step navigation buttons
     const next1 = document.getElementById('quizNext1');
     const next2 = document.getElementById('quizNext2');
+    const next3 = document.getElementById('quizNext3');
     const back2 = document.getElementById('quizBack2');
     const back3 = document.getElementById('quizBack3');
-    const complete = document.getElementById('quizComplete');
+    const back4 = document.getElementById('quizBack4');
+    const populateFormBtn = document.getElementById('quizPopulateForm');
+    const generateSpecBtn = document.getElementById('quizGenerateSpec');
 
     if (next1) next1.addEventListener('click', () => showStep(2));
     if (next2) next2.addEventListener('click', () => showStep(3));
+    if (next3) next3.addEventListener('click', () => showStep(4));
     if (back2) back2.addEventListener('click', () => showStep(1));
     if (back3) back3.addEventListener('click', () => showStep(2));
+    if (back4) back4.addEventListener('click', () => showStep(3));
 
-    if (complete) {
-      complete.addEventListener('click', () => {
-        // Pre-fill form fields
-        const projSelect = document.getElementById('projectType');
-        const detailsTextarea = document.getElementById('projectScope');
-        
-        if (projSelect) {
-          if (quizData.project.includes('Loft')) projSelect.value = 'loft';
-          else if (quizData.project.includes('Extension')) projSelect.value = 'extension';
-          else if (quizData.project.includes('Renovation')) projSelect.value = 'renovation';
+    // Populate top form
+    function populateForm() {
+      const projSelect = document.getElementById('projectType');
+      const detailsTextarea = document.getElementById('projectScope');
+      
+      if (projSelect) {
+        if (quizData.project.includes('Loft')) projSelect.value = 'loft';
+        else if (quizData.project.includes('Extension')) projSelect.value = 'extension';
+        else if (quizData.project.includes('Renovation')) projSelect.value = 'renovation';
+      }
+
+      if (detailsTextarea) {
+        const materialsStr = quizData.materials.length ? quizData.materials.join(', ') : 'Standard Architectural Palette';
+        detailsTextarea.value = `[Virtual Specification & Estimate Request]\nProject Discipline: ${quizData.project}\nPlanning Status: ${quizData.planning}\nTarget Start Date: ${quizData.timeline}\nSelected Moodboard Materials: ${materialsStr}\n\nAdditional notes or address: `;
+      }
+
+      const formTop = document.getElementById('enquiryForm');
+      if (formTop) {
+        formTop.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        formTop.querySelector('#fullName')?.focus();
+      }
+    }
+
+    if (populateFormBtn) {
+      populateFormBtn.addEventListener('click', populateForm);
+    }
+
+    // Modal Specification Sheet Generation
+    const specModal = document.getElementById('specModalBackdrop');
+    const closeSpecBtn = document.getElementById('closeSpecModal');
+
+    if (generateSpecBtn && specModal) {
+      generateSpecBtn.addEventListener('click', () => {
+        // Derive estimate cost & timeline based on project type
+        let costRange = '£55,000 – £75,000';
+        let duration = 'Estimated Build: 8 – 10 Weeks';
+
+        if (quizData.project.includes('Extension')) {
+          costRange = '£68,000 – £110,000';
+          duration = 'Estimated Build: 12 – 16 Weeks';
+        } else if (quizData.project.includes('Renovation')) {
+          costRange = '£90,000 – £160,000';
+          duration = 'Estimated Build: 14 – 20 Weeks';
         }
 
-        if (detailsTextarea) {
-          detailsTextarea.value = `[Project Planner Summary]\\nProject: ${quizData.project}\\nPlanning Status: ${quizData.planning}\\nTarget Start: ${quizData.timeline}\\n\\nAdditional details: `;
+        // Update Spec Sheet UI
+        const specMetaProject = document.getElementById('specMetaProject');
+        const specMetaPlanning = document.getElementById('specMetaPlanning');
+        const specMetaTimeline = document.getElementById('specMetaTimeline');
+        const specCostRange = document.getElementById('specCostRange');
+        const specDuration = document.getElementById('specDuration');
+        const specMaterialsList = document.getElementById('specMaterialsList');
+        const specRef = document.getElementById('specRef');
+        const specDate = document.getElementById('specDate');
+
+        if (specMetaProject) specMetaProject.textContent = quizData.project;
+        if (specMetaPlanning) specMetaPlanning.textContent = quizData.planning;
+        if (specMetaTimeline) specMetaTimeline.textContent = quizData.timeline;
+        if (specCostRange) specCostRange.textContent = costRange;
+        if (specDuration) specDuration.textContent = duration;
+
+        if (specMaterialsList) {
+          specMaterialsList.innerHTML = '';
+          if (quizData.materials && quizData.materials.length) {
+            quizData.materials.forEach(mat => {
+              const li = document.createElement('li');
+              li.innerHTML = `✓ <strong>${mat}</strong>`;
+              specMaterialsList.appendChild(li);
+            });
+          } else {
+            specMaterialsList.innerHTML = '<li>✓ <strong>Tailored architectural finish upon survey</strong></li>';
+          }
         }
 
-        // Smooth scroll to top form
-        const formTop = document.getElementById('enquiryForm');
-        if (formTop) {
-          formTop.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          formTop.querySelector('#fullName')?.focus();
+        if (specRef) {
+          specRef.textContent = `IMP-${Date.now().toString(36).toUpperCase()}`;
+        }
+        if (specDate) {
+          const now = new Date();
+          specDate.textContent = now.toLocaleDateString('en-GB', { month: 'long', year: 'numeric', day: 'numeric' });
+        }
+
+        // Open modal
+        specModal.classList.add('active');
+      });
+    }
+
+    if (closeSpecBtn && specModal) {
+      closeSpecBtn.addEventListener('click', () => specModal.classList.remove('active'));
+      specModal.addEventListener('click', (e) => {
+        if (e.target === specModal) specModal.classList.remove('active');
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && specModal.classList.contains('active')) {
+          specModal.classList.remove('active');
         }
       });
     }
   }
+});
